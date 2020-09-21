@@ -2,6 +2,8 @@
 
 int main(){
 	int choice;
+
+	makeChoice: // 여기로 복귀
 	scanf("%d", &choice);
 
 	switch (choice) {
@@ -19,7 +21,16 @@ int main(){
 		break;
 	default:
 		printf("잘못 입력하셨습니다.\n");
+		goto makeChoice; // makeChoice로 가라
 		break;
+
+		// goto를 자주 사용하면 스파게티 코드가 됨
+		
+// break를 하면 중괄호 밖으로 나갈 수 있음
+// break가 없으면 case 1 -> case 2 순서대로 진행해버림
+// 실수로 break걸지 않으면 안된다는 점!!
+//
 	}
+
 
 }
